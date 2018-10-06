@@ -632,6 +632,11 @@ Prefab:
       propertyPath: knockbackForce.x
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 114727318791621632, guid: ed00754c4ec9a8241b169e61991068d1,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 489205060}
     m_RemovedComponents:
     - {fileID: 61895793158747060, guid: ed00754c4ec9a8241b169e61991068d1, type: 2}
     - {fileID: 61989360613936140, guid: ed00754c4ec9a8241b169e61991068d1, type: 2}
@@ -2625,7 +2630,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.05
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 87a2357765801c34292d6718d8b4d770, type: 2}
       propertyPath: m_LocalPosition.z

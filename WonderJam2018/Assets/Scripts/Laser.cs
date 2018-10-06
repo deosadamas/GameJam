@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    public Vector2 knockbackForce ; 
+    public Vector2 knockbackForce;
     private IEnumerator coroutine;
+<<<<<<< HEAD
     AudioSource LaserSound;
+=======
+
+    
+
+>>>>>>> Florine
     // Use this for initialization
     void Start()
     {
@@ -36,26 +42,25 @@ public class Laser : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      
+
         if (collision.gameObject.tag == "Player")
         {
-            
+
             Vector2 direction = (transform.position - collision.transform.position).normalized;
             collision.transform.Translate(direction * knockbackForce);
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
-            collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero; 
-            StartCoroutine(stun());
-            //collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-
+            collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            StartCoroutine(stun(collision));
         }
+
+        
     }
 
-   IEnumerator stun()
-    {
-        yield return new WaitForSeconds(2f);
-    }
-      
-    
+    IEnumerator stun(Collider2D collision)
+        {
+            yield return new WaitForSeconds(2.0f);
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        }
 
     public void PlayAudio() {
         LaserSound = GetComponent<AudioSource>();
