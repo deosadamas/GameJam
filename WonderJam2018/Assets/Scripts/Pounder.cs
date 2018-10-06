@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pounder : MonoBehaviour
 {
-    public GameObject pounder;
+    public GameObject[] pounders;
     // Use this for initialization
     void Start()
     {
@@ -22,7 +22,10 @@ public class Pounder : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             GetComponent<SpriteRenderer>().enabled = false;
-            pounder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            for (int i = 0; i<pounders.Length; i++)
+            {
+                pounders[i].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            }
         }
     }
 }
