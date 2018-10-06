@@ -10,24 +10,27 @@ public class Laser : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        StartCoroutine(DisableLaser());  
+        StartCoroutine(DisableLaser());
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
 
     IEnumerator DisableLaser()
     {
+        PlayAudio();
         yield return new WaitForSeconds(2);
-
+        
         GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
-        //PlayAudio();
+        //
         GetComponent<BoxCollider2D>().enabled = !GetComponent<BoxCollider2D>().enabled;
+        
         StartCoroutine(DisableLaser());
+
     }
 
 
