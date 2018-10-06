@@ -6,7 +6,7 @@ public class Laser : MonoBehaviour
 {
     public Vector2 knockbackForce ; 
     private IEnumerator coroutine;
-
+    AudioSource LaserSound;
     // Use this for initialization
     void Start()
     {
@@ -23,11 +23,14 @@ public class Laser : MonoBehaviour
     IEnumerator DisableLaser()
     {
         yield return new WaitForSeconds(2);
+
         GetComponent<SpriteRenderer>().enabled = !GetComponent<SpriteRenderer>().enabled;
+        //PlayAudio();
         GetComponent<BoxCollider2D>().enabled = !GetComponent<BoxCollider2D>().enabled;
         StartCoroutine(DisableLaser());
     }
 
+<<<<<<< HEAD
     private void OnTriggerEnter2D(Collider2D collision)
     {
       
@@ -50,5 +53,12 @@ public class Laser : MonoBehaviour
     }
       
     
+=======
+    public void PlayAudio() {
+        LaserSound = GetComponent<AudioSource>();
+        LaserSound.Play(0);
+    }
+
+>>>>>>> Jean-Michou
 
 }
