@@ -30,7 +30,7 @@ public class Laser : MonoBehaviour
         StartCoroutine(DisableLaser());
     }
 
-<<<<<<< HEAD
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
       
@@ -53,12 +53,12 @@ public class Laser : MonoBehaviour
     }
       
     
-=======
+
     public void PlayAudio() {
         LaserSound = GetComponent<AudioSource>();
         LaserSound.Play(0);
     }
 
->>>>>>> Jean-Michou
+
 
 }
