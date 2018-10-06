@@ -6,9 +6,13 @@ public class Laser : MonoBehaviour
 {
     public Vector2 knockbackForce;
     private IEnumerator coroutine;
+<<<<<<< HEAD
+    AudioSource LaserSound;
+=======
 
     
 
+>>>>>>> Florine
     // Use this for initialization
     void Start()
     {
@@ -59,8 +63,8 @@ public class Laser : MonoBehaviour
         }
 
     public void PlayAudio() {
-       // LaserSound = GetComponent<AudioSource>();
-      //  LaserSound.Play(0);
+        LaserSound = GetComponent<AudioSource>();
+        LaserSound.Play(0);
     }
 
 
