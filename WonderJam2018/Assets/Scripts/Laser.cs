@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
+    public Vector2 knockbackForce ; 
     private IEnumerator coroutine;
 
     // Use this for initialization
@@ -18,6 +19,7 @@ public class Laser : MonoBehaviour
 
     }
 
+
     IEnumerator DisableLaser()
     {
         yield return new WaitForSeconds(2);
@@ -26,5 +28,27 @@ public class Laser : MonoBehaviour
         StartCoroutine(DisableLaser());
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+      
+        if (collision.gameObject.tag == "Player")
+        {
+            
+            Vector2 direction = (transform.position - collision.transform.position).normalized;
+            collision.transform.Translate(direction * knockbackForce);
+            collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
+            collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero; 
+            StartCoroutine(stun());
+            //collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+
+        }
+    }
+
+   IEnumerator stun()
+    {
+        yield return new WaitForSeconds(2f);
+    }
+      
+    
 
 }
