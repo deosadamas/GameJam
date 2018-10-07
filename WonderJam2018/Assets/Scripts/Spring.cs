@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spring : MonoBehaviour
 {
     public Vector2 jumpForce;
+    public bool isDangerous;
 
     // Use this for initialization
     void Start()

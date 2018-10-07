@@ -27,7 +27,7 @@ namespace UnityStandardAssets._2D
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
 
-
+            transform.rotation = Quaternion.Euler(0, 0, 0);
 
            
         }

@@ -46,13 +46,17 @@ namespace UnityStandardAssets._2D
 
             // Set the vertical animation
             m_Anim.SetFloat("vSpeed", m_Rigidbody2D.velocity.y);
+
+            if (m_Rigidbody2D.constraints != RigidbodyConstraints2D.FreezePosition)
+                m_Anim.SetBool("isStun", true);
+            else m_Anim.SetBool("isStun", false);
         }
 
 
         public void Move(float move, bool crouch, bool jump)
         {
-            if (m_Rigidbody2D.constraints != RigidbodyConstraints2D.FreezePosition)
-            {
+            //if (m_Rigidbody2D.constraints != RigidbodyConstraints2D.FreezePosition)
+            //{
                 // If crouching, check to see if the character can stand up
                 if (!crouch && m_Anim.GetBool("Crouch"))
                 {
@@ -99,7 +103,7 @@ namespace UnityStandardAssets._2D
                     m_Anim.SetBool("Ground", false);
                     m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
                 }
-            }
+            //}
         }
 
 
