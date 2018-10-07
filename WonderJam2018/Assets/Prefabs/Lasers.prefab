@@ -276,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621e3e43c2dd64742ba05b1a63014d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackForce: {x: 0, y: 0}
 --- !u!114 &114727318791621632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621e3e43c2dd64742ba05b1a63014d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  knockbackForce: {x: 0, y: 0}
 --- !u!212 &212171198497568896
 SpriteRenderer:
   m_ObjectHideFlags: 1

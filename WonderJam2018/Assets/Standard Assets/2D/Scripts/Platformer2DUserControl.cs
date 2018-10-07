@@ -10,13 +10,13 @@ namespace UnityStandardAssets._2D
         private PlatformerCharacter2D m_Character;
         private bool m_Jump;
 
-<<<<<<< HEAD
+
         bool isStun;
 
-=======
+
         public string horizontalAxis;
         public string aButton;
->>>>>>> William
+
 
         private void Awake()
         {
