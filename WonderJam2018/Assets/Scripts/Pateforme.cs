@@ -10,6 +10,7 @@ public class Pateforme : MonoBehaviour
     bool moveUp = false;
     public bool isDangerous;
     public GameObject spike;
+    public AudioSource SawSound;
   
 
     // Use this for initialization
@@ -43,6 +44,7 @@ public class Pateforme : MonoBehaviour
 
         if ((gameObject.tag == "HorSaw" || gameObject.tag == "VerSaw") && isDangerous)
         {
+
             transform.Rotate(Vector3.forward * -3);
         }
 
@@ -94,6 +96,21 @@ public class Pateforme : MonoBehaviour
 
 
     }
+    IEnumerator color(Collider2D collision)
+    {
+        StartCoroutine(color(collision));
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -108,6 +125,10 @@ public class Pateforme : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
         collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
     }
-
+    public void PlayAudio()
+    {
+        SawSound = GetComponent<AudioSource>();
+        SawSound.Play(0);
+    }
 
 }

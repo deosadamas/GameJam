@@ -36,7 +36,22 @@ public class SpikePlafond : MonoBehaviour {
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * KnockbackForce);
             other.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             StartCoroutine(stun(other));
+            StartCoroutine(color(other));
         }
+    }
+    IEnumerator color(Collision2D collision)
+    {
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     IEnumerator stun(Collision2D other) {

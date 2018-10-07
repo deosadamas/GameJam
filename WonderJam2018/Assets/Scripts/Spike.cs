@@ -6,6 +6,7 @@ public class Spike : MonoBehaviour
 {
     public bool isDangerous;
     public Vector2 knockbackForce;
+
     // Use this for initialization
     void Start()
     {
@@ -32,9 +33,25 @@ public class Spike : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(stun(collision));
+            StartCoroutine(color(collision));
         }
 
       
+    }
+
+    IEnumerator color(Collider2D collision)
+    {
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     IEnumerator stun(Collider2D collision)

@@ -10,6 +10,8 @@ public class Laser : MonoBehaviour
     public GameObject laserVert;
     private bool isStarted;
     // Use this for initialization
+    public AudioSource LaserSound;
+
     void Start()
     {
         laserVert.GetComponent<SpriteRenderer>().enabled = false;
@@ -38,7 +40,7 @@ public class Laser : MonoBehaviour
 
     IEnumerator DisableLaser()
     {
-        //PlayAudio();
+        PlayAudio();
         yield return new WaitForSeconds(2);
         disableLasers();
         StartCoroutine(DisableLaser());
@@ -64,6 +66,7 @@ public class Laser : MonoBehaviour
                 collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 StartCoroutine(stun(collision));
+                StartCoroutine(color(collision));
             }
             else
             {
@@ -75,6 +78,20 @@ public class Laser : MonoBehaviour
 
         
     }
+    IEnumerator color(Collider2D collision)
+    {
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+    }
 
     IEnumerator stun(Collider2D collision)
         {
@@ -82,10 +99,10 @@ public class Laser : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
 
-    //public void PlayAudio() {
-    //    LaserSound = GetComponent<AudioSource>();
-    //    LaserSound.Play(0);
-    //}
+    public void PlayAudio() {
+        LaserSound = GetComponent<AudioSource>();
+        LaserSound.Play(0);
+    }
 
 
 

@@ -9,7 +9,7 @@ public class TimeBarManager : MonoBehaviour {
     public Image background;
     public Image fill;
 
-    bool isDangerous;
+    public bool isDangerous;
 
     public float CurrentTime;
     public float MaxTime;

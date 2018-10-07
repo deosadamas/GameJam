@@ -6,6 +6,8 @@ public class Pounder : MonoBehaviour
 {
     public GameObject pounder;
     public bool isDangerous;
+    public Vector2 knockbackForce;
+
     // Use this for initialization
     void Start()
     {
@@ -28,6 +30,25 @@ public class Pounder : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
             pounder.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            Vector2 direction = (transform.position - collision.transform.position).normalized;
+            collision.transform.Translate(direction * knockbackForce);
+            StartCoroutine(color(collision));
         }
+    }
+
+
+    IEnumerator color(Collider2D collision)
+    {
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        collision.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
