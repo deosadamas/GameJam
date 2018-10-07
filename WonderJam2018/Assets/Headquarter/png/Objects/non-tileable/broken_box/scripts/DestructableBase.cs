@@ -24,7 +24,19 @@ public class DestructableBase : Indestructible {
 
 				t.gameObject.SetActive(false);
 			}
-		}		
+		}
+
+        else
+        {
+            foreach (Transform t in transform)
+            {
+                t.gameObject.SetActive(true);
+
+                t.GetComponent<Rigidbody2D>().mass = (Mathf.Pow(t.GetComponent<Collider2D>().bounds.size.magnitude, 2f)) / (Mathf.Pow(GetComponent<Collider2D>().bounds.size.magnitude, 2f)) * 500;
+
+                t.gameObject.SetActive(false);
+            }
+        }
 	}
 
 

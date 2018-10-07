@@ -125,8 +125,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 821bd4c3f167f2e45a6ed2f7326b3781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:WonderJam2018/Assets/Prefabs/spikePlafond.prefab
   KnockbackForce: 1000
 --- !u!212 &212443929260705752
+=======
+  player: {fileID: 0}
+  moveSpeed: 1
+  knockbackForce: {x: 0, y: 0}
+--- !u!212 &212107319306058914
+>>>>>>> f354b14e49b0bfab190ff200367a660466e0eabd:WonderJam2018/Assets/Prefabs/Platform.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

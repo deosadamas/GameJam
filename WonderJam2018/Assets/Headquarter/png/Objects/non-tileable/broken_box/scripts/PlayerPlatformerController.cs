@@ -77,6 +77,13 @@ public class PlayerPlatformerController : PhysicsObject
             
         }
 
+        if (col.gameObject.CompareTag("box2"))
+        {
+            Destroy(col.gameObject);
+
+
+        }
+
         if (col.gameObject.CompareTag("enemy"))
         {
 

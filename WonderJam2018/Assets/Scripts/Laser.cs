@@ -6,9 +6,15 @@ public class Laser : MonoBehaviour
 {
     public Vector2 knockbackForce;
     private IEnumerator coroutine;
+<<<<<<< HEAD
     public bool isDangerous;
     public GameObject laserVert;
     private bool isStarted;
+=======
+
+    
+
+>>>>>>> f354b14e49b0bfab190ff200367a660466e0eabd
     // Use this for initialization
     void Start()
     {
@@ -82,10 +88,17 @@ public class Laser : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
 
+<<<<<<< HEAD
     //public void PlayAudio() {
     //    LaserSound = GetComponent<AudioSource>();
     //    LaserSound.Play(0);
     //}
+=======
+    public void PlayAudio() {
+       // LaserSound = GetComponent<AudioSource>();
+      //  LaserSound.Play(0);
+    }
+>>>>>>> f354b14e49b0bfab190ff200367a660466e0eabd
 
 
 
