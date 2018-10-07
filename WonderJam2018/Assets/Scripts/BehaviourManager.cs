@@ -17,12 +17,11 @@ public class BehaviourManager : MonoBehaviour {
 	// Update is called once per frame
 	public void SwitchBehaviour()
     {
-        if(timerBar.value == 10 || timerBar.value == 0)
+        if (timerBar.value == 10 || timerBar.value == 0)
         {
             foreach (Laser items in laser)
             {
                 items.isDangerous = !items.isDangerous;
-                Debug.Log("blq"+ items.isDangerous);
             }
 
             foreach (Spring items in spring)
@@ -39,6 +38,7 @@ public class BehaviourManager : MonoBehaviour {
             foreach (Pateforme items in plat)
             {
                 items.isDangerous = !items.isDangerous;
+                Debug.Log("blq" + items.isDangerous);
             }
 
             foreach (Spike items in spike)

@@ -259,23 +259,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
-<<<<<<< HEAD:WonderJam2018/Assets/Prefabs/Pounder.prefab
 --- !u!114 &114514787072751610
-=======
---- !u!114 &114695125513720276
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1029027140652032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 621e3e43c2dd64742ba05b1a63014d2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: {x: 0, y: 0}
---- !u!114 &114727318791621632
->>>>>>> f354b14e49b0bfab190ff200367a660466e0eabd:WonderJam2018/Assets/Prefabs/Lasers.prefab
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,14 +270,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b23494675fbb5c4fa61c9b081960c5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:WonderJam2018/Assets/Prefabs/Pounder.prefab
   pounder: {fileID: 1834213311736842}
   isDangerous: 0
 --- !u!212 &212169926280223126
-=======
-  knockbackForce: {x: 0, y: 0}
---- !u!212 &212171198497568896
->>>>>>> f354b14e49b0bfab190ff200367a660466e0eabd:WonderJam2018/Assets/Prefabs/Lasers.prefab
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

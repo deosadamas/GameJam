@@ -11,7 +11,7 @@ TagManager:
   - HorSaw
   - VerSaw
   - Pounder
-  - Spike
+  - spikePlat
   layers:
   - Default
   - TransparentFX

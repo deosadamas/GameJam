@@ -17,12 +17,14 @@ public class Spike : MonoBehaviour
     {
         if (!isDangerous)
             GetComponent<PolygonCollider2D>().isTrigger = false;
+        else
+            GetComponent<PolygonCollider2D>().isTrigger = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player" && isDangerous) // Dans le cas des piques sur plateforme
+        if (collision.gameObject.tag == "Player" && isDangerous ) // Dans le cas des piques sur plateforme
         {
             Debug.Log("Je suis dans ma fonction");
             Vector2 direction = (transform.position - collision.transform.position).normalized;
@@ -31,6 +33,8 @@ public class Spike : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(stun(collision));
         }
+
+      
     }
 
     IEnumerator stun(Collider2D collision)

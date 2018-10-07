@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Pateforme : MonoBehaviour
 {
-    public GameObject player;
     public float moveSpeed;
     public Vector2 knockbackForce;
     bool moveRight = true;
@@ -43,7 +42,9 @@ public class Pateforme : MonoBehaviour
         }
 
         if ((gameObject.tag == "HorSaw" || gameObject.tag == "VerSaw") && isDangerous)
+        {
             transform.Rotate(Vector3.forward * -3);
+        }
 
         if (isDangerous && (gameObject.tag == "HorPlatform" || gameObject.tag == "VerPlatform"))
         {
@@ -68,11 +69,11 @@ public class Pateforme : MonoBehaviour
 
 
         if (collision.gameObject.tag == "Player")
-            player.transform.parent = transform;   
+            collision.transform.parent = transform;   
 
         if (collision.gameObject.tag == "Player" && isDangerous && (gameObject.tag == "HorSaw" || gameObject.tag == "VerSaw")) // Dans le cas de la scie
         {
-            player.transform.parent = transform;
+            collision.transform.parent = transform;
             Vector2 direction = (transform.position - collision.transform.position).normalized;
             collision.transform.Translate(direction * knockbackForce);
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
@@ -82,7 +83,7 @@ public class Pateforme : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" && !isDangerous && (gameObject.tag == "HorPlatform" || gameObject.tag == "VerPlatform")) // Dans le cas de la plateforme
         {
-            player.transform.parent = transform;
+            collision.transform.parent = transform;
             Vector2 direction = (transform.position - collision.transform.position).normalized;
             collision.transform.Translate(direction * knockbackForce);
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
@@ -98,7 +99,7 @@ public class Pateforme : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            player.transform.parent = null;
+            collision.transform.parent = null;
         }
     }
 
