@@ -6,6 +6,7 @@ public class Spike : MonoBehaviour
 {
     public bool isDangerous;
     public Vector2 knockbackForce;
+    public AudioSource Sound;
 
     // Use this for initialization
     void Start()
@@ -27,9 +28,9 @@ public class Spike : MonoBehaviour
 
         if (collision.gameObject.tag == "Player" && isDangerous ) // Dans le cas des piques sur plateforme
         {
-            Debug.Log("Je suis dans ma fonction");
             Vector2 direction = (transform.position - collision.transform.position).normalized;
             collision.transform.Translate(direction * knockbackForce);
+            PlayAudio();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(stun(collision));
@@ -58,5 +59,10 @@ public class Spike : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+    }
+    public void PlayAudio()
+    {
+        Sound = GetComponent<AudioSource>();
+        Sound.Play(0);
     }
 }

@@ -7,6 +7,7 @@ public class SpikePlafond : MonoBehaviour {
     private float k = 0.1f;
     public float KnockbackForce;
     public bool isDangerous;
+    public AudioSource Sound;
 
     // Use this for initialization
     void Start () {
@@ -34,6 +35,7 @@ public class SpikePlafond : MonoBehaviour {
             Vector2 moveDirection = transform.position - other.transform.position;
             moveDirection = -moveDirection.normalized;
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.left * KnockbackForce);
+            PlayAudio();
             other.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             StartCoroutine(stun(other));
             StartCoroutine(color(other));
@@ -58,5 +60,10 @@ public class SpikePlafond : MonoBehaviour {
         yield return new WaitForSeconds(2.0f);
         other.gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         gameObject.SetActive(false);
+    }
+    public void PlayAudio()
+    {
+        Sound = GetComponent<AudioSource>();
+        Sound.Play(0);
     }
 }

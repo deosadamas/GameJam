@@ -254,6 +254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4207689117037736}
   - component: {fileID: 50726233752466018}
+  - component: {fileID: 114060217512119148}
   m_Layer: 0
   m_Name: brokenbits
   m_TagString: Untagged
@@ -1281,6 +1282,17 @@ PolygonCollider2D:
       - {x: -0.024999999, y: 0.095}
       - {x: -0.024999999, y: 0.125}
       - {x: -0.84499997, y: 0.875}
+--- !u!114 &114060217512119148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1805926014935346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fcdbfb6311fed47a302f42c6f6d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212061792889153020
 SpriteRenderer:
   m_ObjectHideFlags: 1

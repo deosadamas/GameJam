@@ -11,6 +11,7 @@ public class Laser : MonoBehaviour
     private bool isStarted;
     // Use this for initialization
     public AudioSource LaserSound;
+    public AudioSource LaserSoundHit;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class Laser : MonoBehaviour
 
     IEnumerator DisableLaser()
     {
-        PlayAudio();
+        PlayAudio(LaserSound);
         yield return new WaitForSeconds(2);
         disableLasers();
         StartCoroutine(DisableLaser());
@@ -63,6 +64,7 @@ public class Laser : MonoBehaviour
             {
                 Vector2 direction = (transform.position - collision.transform.position).normalized;
                 collision.transform.Translate(direction * knockbackForce);
+                PlayAudio(LaserSoundHit);
                 collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
                 collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 StartCoroutine(stun(collision));
@@ -99,9 +101,9 @@ public class Laser : MonoBehaviour
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         }
 
-    public void PlayAudio() {
-        LaserSound = GetComponent<AudioSource>();
-        LaserSound.Play(0);
+    public void PlayAudio(AudioSource sound) {
+        sound = GetComponent<AudioSource>();
+        sound.Play(0);
     }
 
 

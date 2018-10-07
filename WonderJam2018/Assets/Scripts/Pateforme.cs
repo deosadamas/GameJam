@@ -10,7 +10,7 @@ public class Pateforme : MonoBehaviour
     bool moveUp = false;
     public bool isDangerous;
     public GameObject spike;
-    public AudioSource SawSound;
+    public AudioSource Sound;
   
 
     // Use this for initialization
@@ -78,6 +78,7 @@ public class Pateforme : MonoBehaviour
             collision.transform.parent = transform;
             Vector2 direction = (transform.position - collision.transform.position).normalized;
             collision.transform.Translate(direction * knockbackForce);
+            PlayAudio();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(stun(collision));
@@ -88,6 +89,7 @@ public class Pateforme : MonoBehaviour
             collision.transform.parent = transform;
             Vector2 direction = (transform.position - collision.transform.position).normalized;
             collision.transform.Translate(direction * knockbackForce);
+            PlayAudio();
             collision.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePosition;
             collision.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             StartCoroutine(stun(collision));
@@ -127,8 +129,8 @@ public class Pateforme : MonoBehaviour
     }
     public void PlayAudio()
     {
-        SawSound = GetComponent<AudioSource>();
-        SawSound.Play(0);
+        Sound = GetComponent<AudioSource>();
+        Sound.Play(0);
     }
 
 }
